@@ -11,23 +11,23 @@ function App() {
 
 const [ nasaData, SetNasaData ] = useState(" ");
 
-const [date, setDate ] = useState( );
+const [date, setDate ] = useState( "2020-03-01");
 
 useEffect(() => {
-  axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY`) 
+  axios.get(`https://api.nasa.gov/planetary/apod?date=${date}&api_key=DEMO_KEY`) 
    .then(response => {
      console.log(response);
      SetNasaData(response.data)
    })
    .catch(err => console.log(err))
- }, []);
+ }, [date]);
 
   return (
     <div className="App">
       
       <Header />
 
-      <DropMenu date={date} setDate={setDate} />
+      {/* <DropMenu date={date} setDate={setDate} /> */}
 
       <Body nasaData= {nasaData} />
       

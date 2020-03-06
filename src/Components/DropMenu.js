@@ -3,16 +3,16 @@ import React from 'react';
 
 export default function DropMenu(props) {
 
-    console.log('testing', props.setDate);
-        function changeHandler(){
-                    // props.setDate
+    
+        function changeHandler(e){
+                    props.setDate(e.target.value)
         };
 
         return (
                 <div>
                     <button className="dropbtn"> Choose new photo </button>
                     <div className="nasa-drop-content">
-                        <input type="date" value=""/>
+                        <input onChange={changeHandler} type="date" value={props.date}/>
 
                     </div>
 
